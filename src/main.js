@@ -1,3 +1,15 @@
+/*
+Cameron Beattie
+4/21/2021
+~15-20 hours spent on the project
+
+point breakdown:
+
+60 points shrek tier full redesign
+10 points for animated enemy sprite
+10 points for paralax scrolling
+20 points for modifying the weapon behavior
+*/
 // game configuration
 let config = {
   type: Phaser.CANVAS,
