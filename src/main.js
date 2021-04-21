@@ -17,6 +17,7 @@ let desertSpeed = 2;
 let hillSpeed = 1;
 let cliffSpeed = 0.5;
 let cloudSpeed = 0.25;
+let resetDistance = 180;
 
 // reserve keyboard bindings
 let keyF, keyR, keyLEFT, keyRIGHT;
