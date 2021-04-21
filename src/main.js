@@ -13,7 +13,7 @@ let game = new Phaser.Game(config);
 // setting UI sizing
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
-let desertSpeed = 2;
+let desertSpeed = 2.5;
 let hillSpeed = 1;
 let cliffSpeed = 0.5;
 let cloudSpeed = 0.25;

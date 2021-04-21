@@ -9,7 +9,7 @@ class Bullet extends Phaser.GameObjects.Sprite {
     this.moveSpeed = 2;
     this.shotSpeed = 6;
     this.storedX = this.x;
-    this.sfxRocket = scene.sound.add('sfx_rocket'); // add rocket sfx
+    this.sfxBullet = scene.sound.add('sfx_bullet'); // add rocket sfx
   }
 
   update() {
@@ -33,7 +33,7 @@ class Bullet extends Phaser.GameObjects.Sprite {
     if(Phaser.Input.Keyboard.JustDown(keyF) && !this.isFiring) {
       this.isFiring = true;
       this.y = 355;
-      this.sfxRocket.play(); //play sfx
+      this.sfxBullet.play(); //play sfx
     }
     //if fired, move the bullet up
     if(this.isFiring && this.y >= resetDistance) {

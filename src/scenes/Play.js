@@ -195,17 +195,17 @@ class Play extends Phaser.Scene {
     if(this.checkCollision(this.p1Bullet, this.bandit03)) {
       this.p1Bullet.reset();
       this.p1Bullet.x = this.p1Cowboy.x;
-      this.shipExplode(this.bandit03);
+      this.banditExplode(this.bandit03);
     }
     if(this.checkCollision(this.p1Bullet, this.bandit02)) {
       this.p1Bullet.reset();
       this.p1Bullet.x = this.p1Cowboy.x;
-      this.shipExplode(this.bandit02);
+      this.banditExplode(this.bandit02);
     }
     if(this.checkCollision(this.p1Bullet, this.bandit01)) {
       this.p1Bullet.reset();
       this.p1Bullet.x = this.p1Cowboy.x;
-      this.shipExplode(this.bandit01);
+      this.banditExplode(this.bandit01);
     }
   }
 
@@ -221,7 +221,7 @@ class Play extends Phaser.Scene {
       }
   }
 
-  shipExplode(bandit) {
+  banditExplode(bandit) {
     //Temporarily hide ship
     bandit.alpha = 0;
     //create explosion sprite at ship's location
@@ -237,6 +237,6 @@ class Play extends Phaser.Scene {
     this.p1Score += bandit.points;
     this.scoreLeft.text = this.p1Score;
 
-    this.sound.play('sfx_explosion');
+    this.sound.play('sfx_hit');
   }
 }
