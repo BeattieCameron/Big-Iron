@@ -7,7 +7,11 @@ class Play extends Phaser.Scene {
     //load images/title sprites
     this.load.image('rocket', './assets/rocket.png');
     this.load.image('spaceship', './assets/spaceship.png');
-    this.load.image('starfield', './assets/starfield.png');
+    this.load.image('desert', './assets/Desert1.png');
+    this.load.image('hills', './assets/Desert2.png');
+    this.load.image('cliffs', './assets/Desert3.png');
+    this.load.image('sun', './assets/Sun.png');
+    this.load.image('clouds', './assets/Clouds.png');
     //load spritesheet
     this.load.spritesheet('explosion', './assets/explosion.png', {
       frameWidth: 64,
@@ -19,25 +23,32 @@ class Play extends Phaser.Scene {
 
   create() {
     // place starlied
-    this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
+    //this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
+    this.sun= this.add.tileSprite(0, 0, 640, 200, 'sun').setOrigin(0, 0);
+    this.clouds = this.add.tileSprite(0, 0, 640, 100, 'clouds').setOrigin(0, 0);
+    this.cliffs = this.add.tileSprite(0, 50, 640, 200, 'cliffs').setOrigin(0, 0);
+    this.hills = this.add.tileSprite(0, 100, 640, 100, 'hills').setOrigin(0, 0);
+    this.desert = this.add.tileSprite(0, 200, 640, 280, 'desert').setOrigin(0, 0);
     //green UI background
-    this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
-    borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+    //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
+    //borderUISize * 2, 0x00FF00).setOrigin(0, 0);
     // white borders
+    /*
     this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
     this.add.rectangle(0, game.config.height - borderUISize, game.config.width,
     borderUISize, 0xFFFFFF).setOrigin(0, 0);
     this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
     this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height,
     0xFFFFFF).setOrigin(0, 0);
+    */
 
     //add rocket (player 1)
     this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
 
     //add spaceship (x3)
-    this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0,0);
-    this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0);
-    this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0,0);
+    this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, 200, 'spaceship', 0, 30).setOrigin(0,0);
+    this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, 250, 'spaceship', 0, 20).setOrigin(0,0);
+    this.ship03 = new Spaceship(this, game.config.width, 300, 'spaceship', 0, 10).setOrigin(0,0);
 
     //define 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -97,7 +108,11 @@ class Play extends Phaser.Scene {
       this.scene.start("menuScene");
     }
 
-    this.starfield.tilePositionX -= starSpeed;
+    //PARALAX
+    this.desert.tilePositionX -= desertSpeed;
+    this.hills.tilePositionX -= hillSpeed;
+    this.cliffs.tilePositionX -= cliffSpeed;
+    this.clouds.tilePositionX -= cloudSpeed;
 
     if (!this.gameOver) {
       // update rocket
