@@ -98,9 +98,9 @@ class Play extends Phaser.Scene {
     });
 
     //add bandit (x3)
-    this.bandit01 = new Bandit(this, game.config.width + borderUISize*6, 200, 'banditrun', 0, 30).setOrigin(0,0);
-    this.bandit02 = new Bandit(this, game.config.width + borderUISize*3, 250, 'banditrun', 0, 20).setOrigin(0,0);
-    this.bandit03 = new Bandit(this, game.config.width, 300, 'banditrun', 0, 10).setOrigin(0,0);
+    this.bandit01 = new Bandit(this, 0, 200, 'banditrun', 0, 20).setOrigin(0,0);
+    this.bandit02 = new Bandit(this, 0, 250, 'banditrun', 0, 20).setOrigin(0,0);
+    this.bandit03 = new Bandit(this, 0, 300, 'banditrun', 0, 20).setOrigin(0,0);
 
     this.bandit01.anims.play('banditrun');
     this.bandit02.anims.play('banditrun');

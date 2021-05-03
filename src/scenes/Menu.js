@@ -42,7 +42,7 @@ class Menu extends Phaser.Scene {
       // hard mode
       game.settings = {
         banditSpeed: 4,
-        gameTimer: 75000    
+        gameTimer: 55000    
       }
       this.sound.play('sfx_select');
       this.scene.start('playScene');    
