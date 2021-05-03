@@ -183,11 +183,13 @@ class Play extends Phaser.Scene {
   update() {
     // check key input for restart
     if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
+      this.sound.get('music').stop();
       this.scene.restart();
     }
 
     //check key input for menu
     if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+      this.sound.get('music').stop();
       this.scene.start("menuScene");
     }
 
