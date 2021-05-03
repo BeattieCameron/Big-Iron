@@ -50,6 +50,12 @@ class Play extends Phaser.Scene {
       startFrame: 0,
       endFrame: 4
     });
+    this.load.spritesheet('CowboyS', './assets/Cowboy_Sheet.png', {
+      frameWidth: 30,
+      frameHeight: 52,
+      startFrame: 0,
+      endFrame: 4
+    });
   }
 
   create() {
@@ -97,6 +103,17 @@ class Play extends Phaser.Scene {
       frameRate: 15
     });
 
+    this.anims.create({
+      key: 'CowboyBounce',
+      frames: this.anims.generateFrameNumbers('CowboyS', {
+        start: 0,
+        end: 4,
+        first: 0
+      }),
+      frameRate: 15,
+      repeat: -1
+    });
+
     //add bandit (x3)
     this.bandit01 = new Bandit(this, 0, 200, 'banditrun', 0, 20).setOrigin(0,0);
     this.bandit02 = new Bandit(this, 0, 250, 'banditrun', 0, 20).setOrigin(0,0);
@@ -122,7 +139,8 @@ class Play extends Phaser.Scene {
     this.p1Bullet = new Bullet(this, game.config.width/2, 490, 'bullet').setOrigin(0.5, 0);
 
     //add cowboy (player 1)
-    this.p1Cowboy = new Cowboy(this, game.config.width/2, 355, 'cowboy').setOrigin(0.5, 0);
+    this.p1Cowboy = new Cowboy(this, game.config.width/2, 355, 'CowboyBounce').setOrigin(0.5, 0);
+    this.p1Cowboy.anims.play('CowboyBounce');
 
     //define 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
